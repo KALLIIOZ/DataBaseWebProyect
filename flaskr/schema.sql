@@ -24,7 +24,7 @@ CREATE TABLE Generos (
     Nombre VARCHAR(255) NOT NULL
 );
 
--- Crear tabla Videojuegos
+Crear tabla Videojuegos
 CREATE TABLE Videojuegos (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Nombre VARCHAR(255) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE Videojuegos (
     FOREIGN KEY (Genero_ID) REFERENCES Generos(ID)
 );
 
--- Crear tabla Usuarios
+Crear tabla Usuarios
 CREATE TABLE Usuarios (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Nombre_usuario VARCHAR(255) NOT NULL,
