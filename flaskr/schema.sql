@@ -1,7 +1,6 @@
 DROP TABLE IF EXISTS Desarrolladores;
 DROP TABLE IF EXISTS Plataformas;
 DROP TABLE IF EXISTS Reseñas;
-DROP TABLE IF EXISTS Videojuegos;
 DROP TABLE IF EXISTS Generos;
 DROP TABLE IF EXISTS Compras;
 
@@ -25,27 +24,27 @@ CREATE TABLE Generos (
     Nombre VARCHAR(255) NOT NULL
 );
 
--- Crear tabla Videojuegos
-CREATE TABLE Videojuegos (
-    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Nombre VARCHAR(255) NOT NULL,
-    Desarrollador_ID INT,
-    Plataforma_ID INT,
-    Genero_ID INT,
-    Fecha_lanzamiento DATE,
-    Precio DECIMAL(10, 2),
-    FOREIGN KEY (Desarrollador_ID) REFERENCES Desarrolladores(ID),
-    FOREIGN KEY (Plataforma_ID) REFERENCES Plataformas(ID),
-    FOREIGN KEY (Genero_ID) REFERENCES Generos(ID)
-);
+-- -- Crear tabla Videojuegos
+-- CREATE TABLE Videojuegos (
+--     ID INTEGER PRIMARY KEY AUTOINCREMENT,
+--     Nombre VARCHAR(255) NOT NULL,
+--     Desarrollador_ID INT,
+--     Plataforma_ID INT,
+--     Genero_ID INT,
+--     Fecha_lanzamiento DATE,
+--     Precio DECIMAL(10, 2),
+--     FOREIGN KEY (Desarrollador_ID) REFERENCES Desarrolladores(ID),
+--     FOREIGN KEY (Plataforma_ID) REFERENCES Plataformas(ID),
+--     FOREIGN KEY (Genero_ID) REFERENCES Generos(ID)
+-- );
 
--- Crear tabla Usuarios
-CREATE TABLE Usuarios (
-    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Nombre_usuario VARCHAR(255) NOT NULL,
-    Correo_electronico VARCHAR(255) NOT NULL,
-    Contrasena VARCHAR(255) NOT NULL
-); 
+-- -- Crear tabla Usuarios
+-- CREATE TABLE Usuarios (
+--     ID INTEGER PRIMARY KEY AUTOINCREMENT,
+--     Nombre_usuario VARCHAR(255) NOT NULL,
+--     Correo_electronico VARCHAR(255) NOT NULL,
+--     Contrasena VARCHAR(255) NOT NULL
+-- ); 
 
 -- Crear tabla Reseñas
 CREATE TABLE Reseñas (
