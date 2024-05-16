@@ -1,0 +1,19 @@
+    {% extends 'base.html' %}
+
+    {% block header %}
+    <h1>{% block title %}Profile{% endblock %}</h1>
+    {% endblock %}
+
+    {% block content %}
+    <div>
+        <h2>User Information</h2>
+        <form method="post">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" value="{{ g.user['Nombre_usuario'] }}" required>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="{{ g.user['Correo_electronico'] }}" required>
+        <input type="submit" value="Save Changes">
+        </form>
+    </div>
+    {% endblock %}
+

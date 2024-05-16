@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}New Post{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+    <label for="videojuego">Videojuego</label>
+    <select name="videojuego" id="videojuego" required>
+        {% for juego in videojuegos %}
+            <option value="{{ juego['Nombre'] }}">{{ juego['Nombre'] }}</option>
+        {% endfor %}
+    </select>
+    <label for="Calificación">Calificación</label>
+    <select name="Calificación" id="Calificación" required>
+        <option value="">Seleccione una calificación</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    <label for="body">Body</label>
+    <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+    <input type="submit" value="Save">
+</form>
+{% endblock %}

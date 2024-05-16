@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Video Games{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('blog.add_game') }}">Add Game</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for game in games %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>{{ game['Nombre'] }}</h1>
+          <div class="about">Developer: {{ game['Desarrollador'] }}</div>
+          <div class="about">Contact: {{ game['Contacto'] }}</div>
+          <div class="about">Platform: {{ game['Plataforma'] }}</div>
+          <div class="about">Genre: {{ game['Genero'] }}</div>
+          <div class="about">Release Date: {{ game['Fecha_lanzamiento'] }}</div>
+          <div class="about">Price: ${{ game['Precio'] }}</div>
+        </div>
+      </header>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

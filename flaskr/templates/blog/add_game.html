@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="post">
+        <label for="nombre">Nombre del Juego</label>
+        <input type="text" name="nombre" id="nombre" required>
+
+        <label for="desarrolladora">Desarrolladora</label>
+        <select type="text" name="desarrolladora" id="desarrolladora" required>
+            {% for desarrollador in desarrolladoras %}
+                <option value="{{ desarrollador['Nombre'] }}">{{ desarrollador['Nombre'] }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="plataforma">Plataforma</label>
+        <select name="plataforma" id="plataforma" required>
+            {% for platform in plataformas %}
+                <option value="{{ platform['Nombre'] }}">{{ platform['Nombre'] }}</option>
+            {% endfor %}
+        </select>
+        <label for="genero">Género</label>
+        <select name="genero" id="genero" required>
+        {% for genre in generos %}
+            <option value="{{ genre['Nombre'] }}">{{ genre['Nombre'] }}</option>
+        {% endfor %}
+        </select>
+
+        <label for="fecha_lanzamiento">Fecha de Lanzamiento</label>
+        <input type="date" name="fecha_lanzamiento" id="fecha_lanzamiento" required>
+
+        <label for="precio">Precio</label>
+        <input type="number" name="precio" id="precio" step="0.01" required>
+        <input type="submit" value="Save">
+    </form>
+{% endblock %}

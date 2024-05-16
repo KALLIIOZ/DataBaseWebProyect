@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Posts{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('blog.create') }}">New</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>{{ post['Calificación'] }}</h1>
+          <div class="about">by {{ post['Correo_electronico'] }}</div>
+          <div class="about">Game: {{ post['Nombre_videojuego'] }}</div>
+        </div>
+        {% if g.user['ID'] == post['Usuario_ID'] %}
+          <a class="action" href="{{ url_for('blog.update', id=post['ID']) }}">Edit</a>
+        {% endif %}
+      </header>
+      </header>
+      <p class="body">{{ post['Comentario'] }}</p>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

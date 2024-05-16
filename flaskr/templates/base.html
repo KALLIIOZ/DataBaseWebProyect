@@ -1,0 +1,29 @@
+<!doctype html>
+<title>VideoStats</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+    <h1>Videogames Stats</h1>
+    <ul>
+        {% if g.user %}
+        <li><span>{{ g.user['Nombre_usuario'] }}</span></li>
+        <li><a href="{{ url_for('blog.profile') }}">Profile</a></li>
+        <li><a href="{{ url_for('blog.add_game') }}">Add Game</a></li>
+        <li><a href="{{ url_for('blog.view_games') }}">View Games</a></li>
+        <li><a href="{{ url_for('blog.index') }}">Back to Posts</a></li>
+        <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+        {% else %}
+        <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+        <li><a href="{{ url_for('auth.login') }}">Log In</a></li>
+        {% endif %}
+    </ul>
+</nav>
+
+    <section class="content">
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+    </section>
